@@ -20,7 +20,7 @@ Therefore, I will explore how each chemical property relates to wine quality.
 
 ### Data Understandings
 I will firstly load and inspect the datasets to get a better understanding of them.
-```{r}
+```{r results='asis'}
 
 # Load libraries
 library(tidyverse)
@@ -82,16 +82,12 @@ feature_table <- data.frame(
 kable(feature_table, caption = "Feature Names and Their Data Types (Wine Quality Dataset)", format = "markdown")
 ```
 
-
-
-From the datasets we can find a lot of information. I have listed the key findings below:
+From the datasets we can find a lot of information. We can see the data types of the features and I have listed the key findings below:
 ##### Dataset info:
 Red Wine: 1599 samples, 12 features
 
 White Wine: 4898 samples, 12 features
 Target Variable: quality (scored form 0-10)
-
-Datatypes
 
 
 ### Data Preparation
