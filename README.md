@@ -93,7 +93,25 @@ White Wine: 4898 samples, 12 features Target Variable: quality (scored
 form 0-10)
 
 ### Data Preparation
+First we will check for any missing values.
+```{r}
+# Check for missing values
+colSums(is.na(red_wine))
+colSums(is.na(white_wine))
+```
+As there are no missing values, we can move on to better preparing the data. I will add a "type" column to combine red and white wine into one dataset.
+```{r}
+# Add a 'type' column
+red_wine$type <- "red"
+white_wine$type <- "white"
+# Combine
+wine_data <- bind_rows(red_wine, white_wine)
+# Check
+glimpse(wine_data)
+```
+Now we have a full dataset with both wine types labeled.
 
 ### Modeling & Evaluating
+
 
 ### Deployment
