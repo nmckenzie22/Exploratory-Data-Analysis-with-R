@@ -22,7 +22,7 @@ quality.
 
 I will firstly load and inspect the datasets to get a better
 understanding of them. 
-```{r}
+```{r results='asis'}
 # Load libraries
 library(tidyverse)
 library(knitr) # for nice tables later
