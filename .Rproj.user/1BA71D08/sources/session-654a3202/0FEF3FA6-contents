@@ -7,7 +7,7 @@ output:
 always_allow_html: true
 ---
 
-###Business Understandings
+### Business Understandings
 
 
 
@@ -15,12 +15,12 @@ always_allow_html: true
 
 
 
-###Data Preparation
+### Data Preparation
 
 
 
-###Modeling & Evaluating
+### Modeling & Evaluating
 
 
 
-###Deployment
+### Deployment
