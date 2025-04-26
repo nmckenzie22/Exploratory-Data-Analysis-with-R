@@ -92,7 +92,7 @@ Red Wine: 1599 samples, 12 features
 White Wine: 4898 samples, 12 features Target Variable: quality (scored
 form 0-10)
 
-### Data Preparation
+## Data Preparation
 First we will check for any missing values.
 ```{r}
 # Check for missing values
