@@ -38,7 +38,7 @@ cat("White Wine: ", dim(white_wine)[1], "rows,", dim(white_wine)[2], "columns\n"
 
 ```
 From the datasets we can find a lot of information. I have listed the key findings below:
-###### Dataset info:
+##### Dataset info:
 Red Wine: 1599 samples, 12 features
 White Wine: 4898 samples, 12 features
 

@@ -356,6 +356,54 @@ display: none;
 <h2># Exploratory-Data-Analysis-with-R</h2>
 <p>title: “README” output: github_document: pandoc_args: [“–wrap=none”]
 always_allow_html: true —</p>
+<div id="business-understandings" class="section level3">
+<h3>Business Understandings</h3>
+<p>Goal: a wine producer has hired me to better understand what
+non-obvious factors affect wine quality</p>
+<p>After some background research I have found that: - Wine quality
+depends on chemical properties (like acidity, sugar, pH, alcohol
+content) as well as human taste. - Higher alcohol is typically
+associated with better quality wines. - Too much residual sugar or
+acidity can negatively impact taste. - Balance among components is
+important as extreme values might hurt quality.</p>
+<p>Therefore, I will explore how each chemical property relates to wine
+quality.</p>
+</div>
+<div id="data-understandings" class="section level3">
+<h3>Data Understandings</h3>
+<p>I will firstly load and inspect the datasets to get a better
+understanding of them. ```{r} # Load libraries library(tidyverse)</p>
+</div>
+</div>
+<div id="read-the-data" class="section level1">
+<h1>Read the data</h1>
+<p>red_wine &lt;-
+read.csv(“/Users/nickmckenzie/Downloads/wine+quality/winequality-red.csv”,
+sep = “;”) white_wine &lt;-
+read.csv(“/Users/nickmckenzie/Downloads/wine+quality/winequality-white.csv”,
+sep = “;”)</p>
+</div>
+<div id="quick-look" class="section level1">
+<h1>Quick look</h1>
+<p>glimpse(red_wine) glimpse(white_wine)</p>
+</div>
+<div id="dimension" class="section level1">
+<h1>Dimension</h1>
+<p>cat(“Red Wine:”, dim(red_wine)[1], “rows,”, dim(red_wine)[2],
+“columns”) cat(“White Wine:”, dim(white_wine)[1], “rows,”,
+dim(white_wine)[2], “columns”)</p>
+<p>``` From the datasets we can find a lot of information. I have listed
+the key findings below: ##### Dataset info: Red Wine: 1599 samples, 12
+features White Wine: 4898 samples, 12 features</p>
+<div id="data-preparation" class="section level3">
+<h3>Data Preparation</h3>
+</div>
+<div id="modeling-evaluating" class="section level3">
+<h3>Modeling &amp; Evaluating</h3>
+</div>
+<div id="deployment" class="section level3">
+<h3>Deployment</h3>
+</div>
 </div>
 
 
