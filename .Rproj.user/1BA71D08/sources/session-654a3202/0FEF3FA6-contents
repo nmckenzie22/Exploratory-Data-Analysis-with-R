@@ -79,9 +79,7 @@ feature_table <- data.frame(
 )
 
 # Print the feature table
-kable(feature_table, caption = "Feature Names and Their Data Types (Wine Quality Dataset)")
-
-
+kable(feature_table, caption = "Feature Names and Their Data Types (Wine Quality Dataset)", format = "markdown")
 ```
 
 
