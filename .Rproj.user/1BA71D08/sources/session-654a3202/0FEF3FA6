@@ -3,7 +3,7 @@
     "path": "~/Documents/GitHub/Exploratory-Data-Analysis-with-R/README.md",
     "project_path": "README.md",
     "type": "r_markdown",
-    "hash": "0",
+    "hash": "2604073188",
     "contents": "",
     "dirty": false,
     "created": 1745705645292.0,
@@ -12,18 +12,18 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "150,5",
+        "cursorPosition": "149,5",
         "scrollLine": "135",
         "rmdVisualMode": "false",
         "rmdVisualCollapsedChunks": "",
         "rmdVisualModeLocation": "2:0"
     },
     "folds": "28|21|88|0|\n",
-    "lastKnownWriteTime": 1745715809,
+    "lastKnownWriteTime": 1745715852,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1745715809437,
+    "last_content_update": 1745715852756,
     "read_only": false,
     "read_only_alternatives": []
 }

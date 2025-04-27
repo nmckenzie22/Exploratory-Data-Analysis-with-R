@@ -147,7 +147,7 @@ In the Alcohol Content by Wine Quality visualization we see a clear positive cor
 
 From these visualizations and our background understandings we can generate some hypothesis to test:
 #### Hypothesis 1: Higher alcohol content leads to better wine quality
-#### Hypothesis 2: Lower volatile acidity leads to better wine quality (especially for red wine)
+##### Hypothesis 2: Lower volatile acidity leads to better wine quality (especially for red wine)
 #### Hypothesis 3: Wines with moderate residual sugar have better quality (nonlinear relationship)
 
 
