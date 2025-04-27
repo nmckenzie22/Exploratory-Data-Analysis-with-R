@@ -205,11 +205,11 @@ anova_sugar <- aov(quality ~ sugar_level, data = wine_data)
 summary(anova_sugar)
 ```
 ```{r}
-              Df Sum Sq Mean Sq F value   Pr(>F)    
-sugar_level    2     25  12.650   16.67 6.02e-08 ***
-Residuals   6494   4928   0.759                     
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+#              Df Sum Sq Mean Sq F value   Pr(>F)    
+#sugar_level    2     25  12.650   16.67 6.02e-08 ***
+#Residuals   6494   4928   0.759                     
+#---
+#Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
 ```
 
 The significant p-value (6.02e-08) confirms that at least one sugar level group (low/medium/high) has a statistically different mean quality. The small sum of squares (Sum Sq = 25 vs. Residuals = 4928) suggests sugar level explains a modest portion of quality variation. Other factors (e.g., alcohol, acidity) likely play larger roles. Ultimately we also fail to reject this hypothesis. 
