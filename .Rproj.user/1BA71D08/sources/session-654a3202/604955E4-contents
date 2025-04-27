@@ -93,8 +93,8 @@ types of the features and I have listed the key findings below:
 ##### Dataset info: 
 Red Wine: 1599 samples, 12 features
 
-White Wine: 4898 samples, 12 features 
-Target Variable: quality (scored from 0-10)
+White Wine: 4898 samples, 12 features Target Variable: quality (scored
+form 0-10)
 
 ## Data Preparation
 First we will check for any missing values.
@@ -215,4 +215,4 @@ The significant p-value (6.02e-08) confirms that at least one sugar level group 
 
 
 ## Conclusion
-Through exploratory data analysis of the UCI Wine Quality Dataset, I found that alcohol content and volatile acidity are significant predictors of wine quality, with alcohol showing a positive relationship and volatile acidity a negative one (especially in red wines). Additionally, residual sugar appears to have a nonlinear relationship with wine quality, with moderate levels associated with higher scores. These insights can help wine producers optimize chemical balances to enhance product quality. While these factors are important, wine quality is subjective and influenced by additional elements such as sensory perception and production methods that are not captured in this dataset.
+
