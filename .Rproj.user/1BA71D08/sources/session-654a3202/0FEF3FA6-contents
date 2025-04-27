@@ -3,7 +3,7 @@ README
 
 # Exploratory-Data-Analysis-with-R
 
-### Business Understandings
+## Business Understandings
 
 Goal: a wine producer has hired me to better understand what non-obvious
 factors affect wine quality
@@ -18,7 +18,7 @@ extreme values might hurt quality.
 Therefore, I will explore how each chemical property relates to wine
 quality.
 
-### Data Understandings
+## Data Understandings
 
 I will firstly load and inspect the datasets to get a better
 understanding of them. 
@@ -111,7 +111,16 @@ glimpse(wine_data)
 ```
 Now we have a full dataset with both wine types labeled.
 
-### Modeling & Evaluating
+## Modeling & Evaluating
+I will now perform an Exploratory Data Analysis (EDA). First I will check general distributions and explore some key variables.
+
+```{r}
+# Quality distribution
+wine_data %>%
+  ggplot(aes(x = factor(quality), fill = type)) +
+  geom_bar(position = "dodge") +
+  labs(title = "Wine Quality Distribution", x = "Quality Score", y = "Count")
+```
 
 
-### Deployment
+## Deployment
