@@ -115,31 +115,24 @@ Now we have a full dataset with both wine types labeled.
 I will now perform an Exploratory Data Analysis (EDA). First I will check general distributions and explore some key variables.
 
 ```{r}
-# Quality distribution
+# Generate and save the quality plot
 wine_data %>%
   ggplot(aes(x = factor(quality), fill = type)) +
   geom_bar(position = "dodge") +
   labs(title = "Wine Quality Distribution", x = "Quality Score", y = "Count")
+ggsave("images/quality_plot.png", width = 6, height = 4)
 
-ggsave("quality_plot.png", width = 6, height = 4)
-
-```
-
-```markdown
-## Quality Distribution
-![Wine Quality Distribution](quality_plot.png)
-```
-
-```{r}
-# Alcohol vs Quality
+# Generate and save the alcohol plot
 wine_data %>%
   ggplot(aes(x = quality, y = alcohol, fill = type)) +
   geom_boxplot() +
   labs(title = "Alcohol Content by Wine Quality", x = "Quality", y = "Alcohol (%)")
-ggsave("alcohol_plot.png", width = 6, height = 4)
+ggsave("images/alcohol_plot.png", width = 6, height = 4)
 ```
 
-
+```{bash}
+mkdir images
 ```
+
 
 ## Deployment
