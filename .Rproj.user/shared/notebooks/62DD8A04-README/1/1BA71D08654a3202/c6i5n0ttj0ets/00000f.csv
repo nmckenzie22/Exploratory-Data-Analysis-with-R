@@ -1,0 +1,5 @@
+"0","wine_data %>%"
+"0","  ggplot(aes(x = residual.sugar, y = quality, color = type)) +"
+"0","  geom_point(alpha = 0.5) +"
+"0","  geom_smooth(method = ""loess"") +"
+"0","  labs(title = ""Residual Sugar vs Wine Quality"", x = ""Residual Sugar"", y = ""Quality"")"
