@@ -141,6 +141,15 @@ ggsave("images/alcohol_plot.png", width = 6, height = 4)
 ## Alcohol vs Quality  
 ![Alcohol Content by Quality](images/alcohol_plot.png)
 ```
+From the Wine Quality Distribution we see that the distribution follows a near-normal curve peaking at quality score 6 (most common rating). White wines (blue bars) are more prevalent than reds at all quality levels and very few wines score at extremes (almost none at 3 or 9). 
+
+In the Alcohol Content by Wine Quality visualization we see a clear positive correlation: higher alcohol content associates with better quality. White wines generally have lower alcohol content than reds at the same quality level and outliers appear more frequently in lower quality wines. 
+
+From these visualizations and our background understandings we can generate some hypothesis to test:
+#### Hypothesis 1: Higher alcohol content leads to better wine quality
+#### Hypothesis 2: Lower volatile acidity leads to better wine quality (especially for red wine)
+#### Hypothesis 3: Wines with moderate residual sugar have better quality (nonlinear relationship)
+
 
 
 ## Deployment
