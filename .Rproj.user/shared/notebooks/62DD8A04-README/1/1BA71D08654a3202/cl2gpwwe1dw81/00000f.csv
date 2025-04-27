@@ -1,6 +1,0 @@
-"0","# Quality distribution"
-"0","wine_data %>%"
-"0","  ggplot(aes(x = factor(quality), fill = type)) +"
-"0","  geom_bar(position = ""dodge"") +"
-"0","  labs(title = ""Wine Quality Distribution"", x = ""Quality Score"", y = ""Count"")"
-"0",""

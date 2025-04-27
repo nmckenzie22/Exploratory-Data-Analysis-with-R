@@ -122,5 +122,32 @@ wine_data %>%
   labs(title = "Wine Quality Distribution", x = "Quality Score", y = "Count")
 ```
 
+```{r}
+# Alcohol vs Quality
+wine_data %>%
+  ggplot(aes(x = quality, y = alcohol, fill = type)) +
+  geom_boxplot() +
+  labs(title = "Alcohol Content by Wine Quality", x = "Quality", y = "Alcohol (%)")
+
+```
+
+```{r}
+# Quality distribution plot
+p1 <- wine_data %>%
+  ggplot(aes(x = factor(quality), fill = type)) +
+  geom_bar(position = "dodge") +
+  labs(title = "Wine Quality Distribution", x = "Quality Score", y = "Count")
+
+ggsave("quality_distribution_plot.png", plot = p1, width = 8, height = 6)
+
+# Alcohol vs Quality plot
+p2 <- wine_data %>%
+  ggplot(aes(x = quality, y = alcohol, fill = type)) +
+  geom_boxplot() +
+  labs(title = "Alcohol Content by Wine Quality", x = "Quality", y = "Alcohol (%)")
+
+ggsave("alcohol_vs_quality_plot.png", plot = p2, width = 8, height = 6)
+
+```
 
 ## Deployment
