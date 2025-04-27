@@ -1,6 +1,11 @@
 README
-================
-
+---
+title: "README"
+output:
+ github_document:
+ pandoc_args: ["--wrap=none"]
+always_allow_html: true
+---
 # Exploratory-Data-Analysis-with-R
 
 ## Business Understandings
