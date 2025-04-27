@@ -113,9 +113,6 @@ Now we have a full dataset with both wine types labeled.
 
 ## Modeling & Evaluating
 I will now perform an Exploratory Data Analysis (EDA). First I will check general distributions and explore some key variables.
-```{r}
-dir.create("images")
-```
 
 ```{r}
 # Generate and save the quality plot
