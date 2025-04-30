@@ -5,18 +5,15 @@ README
 
 ## Business Understandings
 
-Goal: a wine producer has hired me to better understand what non-obvious
-factors affect wine quality
+Goal: a wine producer has hired me to better understand what non-obvious factors affect wine quality
 
-After some background research I have found that: - Wine quality depends
-on chemical properties (like acidity, sugar, pH, alcohol content) as
-well as human taste. - Higher alcohol is typically associated with
-better quality wines. - Too much residual sugar or acidity can
-negatively impact taste. - Balance among components is important as
-extreme values might hurt quality.
+After some background research I have found that: 
+- Wine quality depends on chemical properties (like acidity, sugar, pH, alcohol content) as well as human taste. 
+- Higher alcohol is typically associated with better quality wines. 
+- Too much residual sugar or acidity can negatively impact taste. 
+- Balance among components is important as extreme values might hurt quality. 
 
-Therefore, I will explore how each chemical property relates to wine
-quality.
+Therefore, I will explore how each chemical property relates to wine quality.
 
 ## Data Understandings
 
