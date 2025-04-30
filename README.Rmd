@@ -193,7 +193,6 @@ plot(lm2)
 
 # Reset plotting
 par(mfrow = c(1, 1))
-
 ```
 
 From the correlation results we find that their is a Strong negative correlation (-0.391). This also fails to reject this Hypothesis that lower volatile acidity associates with better quality in red wines. The relationship is statistically significant (p < 2.2e-16) and directionally meaningful. When looking at the regression, the coefficient the intercept is 6.566, which is the expected quality score when volatile acidity is zero. The slope is -1.761, meaning each 1 g/L increase in volatile acidity corresponds to a ~1.76 point decrease in quality score. The R-squared of 0.152 means volatile acidity explains about 15% of quality variation in red wines. While significant, this suggests other factors play larger roles in determining quality. This analysis strongly supports Hypothesis 2, revealing volatile acidity as a key negative quality predictor in red wines. The effect is both statistically and practically significant, though other factors clearly contribute to quality perceptions. Additionally, these diagnostic plots help validate that the assumptions of linear regression (linearity, normal residuals, equal variance) are reasonably met for this model.
