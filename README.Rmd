@@ -30,7 +30,6 @@ I will firstly load and inspect the datasets to get a better understanding of th
 # Load libraries
 library(tidyverse)
 library(knitr) # for nice tables later
-install.packages("car")
 # Read the data
 red_wine <- read.csv("/Users/nickmckenzie/Downloads/wine+quality/winequality-red.csv", sep = ";")
 white_wine <- read.csv("/Users/nickmckenzie/Downloads/wine+quality/winequality-white.csv", sep = ";")
@@ -236,21 +235,24 @@ summary(anova_sugar)
     #Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
 
 
+The significant p-value (6.02e-08) confirms that at least one sugar level group (low/medium/high) has a statistically different mean quality. The small sum of squares (Sum Sq = 25 vs. Residuals = 4928)
+suggests sugar level explains a modest portion of quality variation. Other factors (e.g., alcohol, acidity) likely play larger roles. Ultimately we also fail to reject this hypothesis.
+
 We should now also test for normality and equal variance of residuals, which are key assumptions for the ANOVA test to be valid:
 
 ```{r}
-# Check ANOVA assumptions
-# 1. Normality of residuals
-shapiro.test(residuals(anova_sugar))  # should be > 0.05
+# Visual check for ANOVA assumptions
 
-# 2. Homogeneity of variances
+# 1. Normality of residuals — use Q-Q plot
+qqnorm(residuals(anova_sugar))
+qqline(residuals(anova_sugar), col = "red")
+
+# 2. Homogeneity of variances — Levene's Test
 library(car)
 leveneTest(quality ~ sugar_level, data = wine_data)
 ```
 
-
-The significant p-value (6.02e-08) confirms that at least one sugar level group (low/medium/high) has a statistically different mean quality. The small sum of squares (Sum Sq = 25 vs. Residuals = 4928)
-suggests sugar level explains a modest portion of quality variation. Other factors (e.g., alcohol, acidity) likely play larger roles. Ultimately we also fail to reject this hypothesis.
+From the Q-Q plot, the residuals appear to be roughly normally distributed. However, Levene’s Test returns a p-value of 0.042, indicating that the variances across sugar level groups may not be equal. This suggests that the assumption of homogeneity of variance is marginally violated, which may slightly impact the validity of the ANOVA results. Nonetheless, given the large sample size, ANOVA is generally considered robust to minor deviations from this assumption.
 
 ## Conclusion
 

@@ -303,7 +303,9 @@ generate some hypotheses to test:
 Now I will get into some statistical testing to test these hypotheses.
 We will first test Hypothesis 1: Higher alcohol content leads to better
 wine quality. We can do this by checking the correlation first and then
-performing a linear regression:
+performing a linear regression. Once this is complete we can test for
+the linear regression assumptions, checking for linearity, normality of
+residuals, and Homoscedasticity:
 
 ``` r
 cor(wine_data$alcohol, wine_data$quality)
@@ -335,6 +337,23 @@ summary(lm1)
     ## Multiple R-squared:  0.1974, Adjusted R-squared:  0.1973 
     ## F-statistic:  1598 on 1 and 6495 DF,  p-value: < 2.2e-16
 
+We will now check these plots to ensure linear regression assumptions
+hold — including linearity, normality of residuals, and homoscedasticity
+(constant variance):
+
+``` r
+# Check linear regression assumptions for lm1
+par(mfrow = c(2, 2))  # Show 4 plots
+plot(lm1)
+```
+
+![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+
+``` r
+# Reset plotting
+par(mfrow = c(1, 1))
+```
+
 As we can see from the generated statistics, the statistical tests fail
 to reject this hypothesis. The correlation coefficient (0.444) shows a
 moderate positive relationship between alcohol and quality. From the
@@ -343,7 +362,9 @@ confirms alcohol is a meaningful predictor. The coefficient (0.325)
 means each 1% increase in alcohol corresponds to ~0.33 point increase in
 quality score. However, the R-squared (0.197) indicates alcohol alone
 explains only about 20% of quality variation, suggesting other factors
-are important.
+are important. Also, These diagnostic plots help validate that the
+assumptions of linear regression (linearity, normal residuals, equal
+variance) are reasonably met for this model.
 
 Next we will test Hypothesis 2: Lower volatile acidity leads to better
 wine quality (especially for red wine). We will also check the
@@ -384,6 +405,25 @@ summary(lm2)
     ## Multiple R-squared:  0.1525, Adjusted R-squared:  0.152 
     ## F-statistic: 287.4 on 1 and 1597 DF,  p-value: < 2.2e-16
 
+Once this is complete we can test for the linear regression assumptions,
+checking for linearity, normality of residuals, and Homoscedasticity. We
+check these plots to ensure linear regression assumptions hold —
+including linearity, normality of residuals, and homoscedasticity
+(constant variance):
+
+``` r
+# Check linear regression assumptions for lm2
+par(mfrow = c(2, 2))  # Show 4 diagnostic plots
+plot(lm2)
+```
+
+![](README_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+
+``` r
+# Reset plotting
+par(mfrow = c(1, 1))
+```
+
 From the correlation results we find that their is a Strong negative
 correlation (-0.391). This also fails to reject this Hypothesis that
 lower volatile acidity associates with better quality in red wines. The
@@ -398,7 +438,9 @@ suggests other factors play larger roles in determining quality. This
 analysis strongly supports Hypothesis 2, revealing volatile acidity as a
 key negative quality predictor in red wines. The effect is both
 statistically and practically significant, though other factors clearly
-contribute to quality perceptions.
+contribute to quality perceptions. Additionally, these diagnostic plots
+help validate that the assumptions of linear regression (linearity,
+normal residuals, equal variance) are reasonably met for this model.
 
 Finally, we can look into Hypothesis 3: Wines with moderate residual
 sugar have better quality (nonlinear relationship). We should first
@@ -414,7 +456,7 @@ wine_data %>%
 
     ## `geom_smooth()` using formula = 'y ~ x'
 
-![](README_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
 
 From this visualization we see the curves for both red and white wines
 appear to show a nonlinear relationship between residual sugar and
@@ -441,7 +483,7 @@ wine_data %>%
   labs(title = "Sugar Levels vs Quality", x = "Sugar Level", y = "Quality")
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
 
 ``` r
 # ANOVA
@@ -467,6 +509,59 @@ quality. The small sum of squares (Sum Sq = 25 vs. Residuals = 4928)
 suggests sugar level explains a modest portion of quality variation.
 Other factors (e.g., alcohol, acidity) likely play larger roles.
 Ultimately we also fail to reject this hypothesis.
+
+We should now also test for normality and equal variance of residuals,
+which are key assumptions for the ANOVA test to be valid:
+
+``` r
+# Visual check for ANOVA assumptions
+
+# 1. Normality of residuals — use Q-Q plot
+qqnorm(residuals(anova_sugar))
+qqline(residuals(anova_sugar), col = "red")
+```
+
+![](README_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
+
+``` r
+# 2. Homogeneity of variances — Levene's Test
+library(car)
+```
+
+    ## Loading required package: carData
+
+    ## 
+    ## Attaching package: 'car'
+
+    ## The following object is masked from 'package:dplyr':
+    ## 
+    ##     recode
+
+    ## The following object is masked from 'package:purrr':
+    ## 
+    ##     some
+
+``` r
+leveneTest(quality ~ sugar_level, data = wine_data)
+```
+
+    ## Warning in leveneTest.default(y = y, group = group, ...): group coerced to
+    ## factor.
+
+    ## Levene's Test for Homogeneity of Variance (center = median)
+    ##         Df F value  Pr(>F)  
+    ## group    2  3.1712 0.04202 *
+    ##       6494                  
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+From the Q-Q plot, the residuals appear to be roughly normally
+distributed. However, Levene’s Test returns a p-value of 0.042,
+indicating that the variances across sugar level groups may not be
+equal. This suggests that the assumption of homogeneity of variance is
+marginally violated, which may slightly impact the validity of the ANOVA
+results. Nonetheless, given the large sample size, ANOVA is generally
+considered robust to minor deviations from this assumption.
 
 ## Conclusion
 
