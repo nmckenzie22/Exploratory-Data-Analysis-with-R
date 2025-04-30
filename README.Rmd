@@ -21,6 +21,7 @@ After some background research I have found that:
 
 Therefore, I will explore how each chemical property relates to wine quality.
 
+
 ## Data Understandings
 
 I will firstly load and inspect the datasets to get a better understanding of them. 
