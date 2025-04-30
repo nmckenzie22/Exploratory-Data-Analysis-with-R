@@ -78,8 +78,11 @@ kable(feature_table, caption = "Feature Names and Their Data Types (Wine Quality
 From the datasets we can find a lot of information. We can see the datatypes of the features and I have listed the key findings below: 
 
 ##### Dataset info: 
+
 Red Wine: 1599 samples, 12 features
+
 White Wine: 4898 samples, 12 features 
+
 Target Variable: quality (scored from 0-10)
 
 ## Data Preparation
@@ -125,20 +128,12 @@ wine_data %>%
 ggsave("images/alcohol_plot.png", width = 6, height = 4)
 ```
 
-```{r}
-## Quality Distribution
-#![Wine Quality Distribution](images/quality_plot.png)
-
-## Alcohol vs Quality  
-#![Alcohol Content by Quality](images/alcohol_plot.png)
-```
-
-
 From the Wine Quality Distribution we see that the distribution follows a near-normal curve peaking at quality score 6 (most common rating). White wines (blue bars) are more prevalent than reds at all quality levels and very few wines score at extremes (almost none at 3 or 9). 
 
 In the Alcohol Content by Wine Quality visualization we see a clear positive correlation: higher alcohol content associates with better quality. White wines generally have lower alcohol content than reds at the same quality level and outliers appear more frequently in lower quality wines. 
 
 From these visualizations and our background understandings we can generate some hypotheses to test:
+
 ##### Hypothesis 1: Higher alcohol content leads to better wine quality
 ##### Hypothesis 2: Lower volatile acidity leads to better wine quality (especially for red wine)
 ##### Hypothesis 3: Wines with moderate residual sugar have better quality (nonlinear relationship)

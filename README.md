@@ -176,8 +176,11 @@ datatypes of the features and I have listed the key findings below:
 
 ##### Dataset info:
 
-Red Wine: 1599 samples, 12 features White Wine: 4898 samples, 12
-features Target Variable: quality (scored from 0-10)
+Red Wine: 1599 samples, 12 features
+
+White Wine: 4898 samples, 12 features
+
+Target Variable: quality (scored from 0-10)
 
 ## Data Preparation
 
@@ -277,14 +280,6 @@ wine_data %>%
 ggsave("images/alcohol_plot.png", width = 6, height = 4)
 ```
 
-``` r
-## Quality Distribution
-#![Wine Quality Distribution](images/quality_plot.png)
-
-## Alcohol vs Quality  
-#![Alcohol Content by Quality](images/alcohol_plot.png)
-```
-
 From the Wine Quality Distribution we see that the distribution follows
 a near-normal curve peaking at quality score 6 (most common rating).
 White wines (blue bars) are more prevalent than reds at all quality
@@ -297,11 +292,13 @@ the same quality level and outliers appear more frequently in lower
 quality wines.
 
 From these visualizations and our background understandings we can
-generate some hypotheses to test: \##### Hypothesis 1: Higher alcohol
-content leads to better wine quality \##### Hypothesis 2: Lower volatile
-acidity leads to better wine quality (especially for red wine) \#####
-Hypothesis 3: Wines with moderate residual sugar have better quality
-(nonlinear relationship)
+generate some hypotheses to test:
+
+##### Hypothesis 1: Higher alcohol content leads to better wine quality
+
+##### Hypothesis 2: Lower volatile acidity leads to better wine quality (especially for red wine)
+
+##### Hypothesis 3: Wines with moderate residual sugar have better quality (nonlinear relationship)
 
 Now I will get into some statistical testing to test these hypotheses.
 We will first test Hypothesis 1: Higher alcohol content leads to better
@@ -417,7 +414,7 @@ wine_data %>%
 
     ## `geom_smooth()` using formula = 'y ~ x'
 
-![](README_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
 
 From this visualization we see the curves for both red and white wines
 appear to show a nonlinear relationship between residual sugar and
@@ -444,7 +441,7 @@ wine_data %>%
   labs(title = "Sugar Levels vs Quality", x = "Sugar Level", y = "Quality")
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
 
 ``` r
 # ANOVA
