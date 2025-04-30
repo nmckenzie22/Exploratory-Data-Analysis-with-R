@@ -8,12 +8,14 @@ README
 Goal: a wine producer has hired me to better understand what non-obvious
 factors affect wine quality
 
-After some background research I have found that: - Wine quality depends
-on chemical properties (like acidity, sugar, pH, alcohol content) as
-well as human taste. - Higher alcohol is typically associated with
-better quality wines. - Too much residual sugar or acidity can
-negatively impact taste. - Balance among components is important as
-extreme values might hurt quality.
+After some background research I have found that:
+
+- Wine quality depends on chemical properties (like acidity, sugar, pH,
+  alcohol content) as well as human taste.
+- Higher alcohol is typically associated with better quality wines.
+- Too much residual sugar or acidity can negatively impact taste.
+- Balance among components is important as extreme values might hurt
+  quality.
 
 Therefore, I will explore how each chemical property relates to wine
 quality.
@@ -41,11 +43,9 @@ library(tidyverse)
 
 ``` r
 library(knitr) # for nice tables later
-
 # Read the data
 red_wine <- read.csv("/Users/nickmckenzie/Downloads/wine+quality/winequality-red.csv", sep = ";")
 white_wine <- read.csv("/Users/nickmckenzie/Downloads/wine+quality/winequality-white.csv", sep = ";")
-
 # Quick look
 glimpse(red_wine)
 ```
@@ -99,14 +99,11 @@ cat("White Wine: ", dim(white_wine)[1], "rows,", dim(white_wine)[2], "columns\n"
 
 ``` r
 # ----- NEW: Data Preparation -----
-
 # Add a 'type' column to each dataset
 red_wine$type <- "red"
 white_wine$type <- "white"
-
 # Combine into one dataset
 wine_data <- bind_rows(red_wine, white_wine)
-
 # Quick check of combined data
 glimpse(wine_data)
 ```
@@ -129,10 +126,8 @@ glimpse(wine_data)
 
 ``` r
 # ----- NEW: Create Feature Table -----
-
 # Feature names
 features <- colnames(wine_data)
-
 # Define feature types manually
 feature_types <- c(
   "Ratio",   # fixed acidity
@@ -149,13 +144,11 @@ feature_types <- c(
   "Ordinal", # quality
   "Nominal"  # type
 )
-
 # Create a table showing feature names and types
 feature_table <- data.frame(
   Feature = features,
   Data_Type = feature_types
 )
-
 # Print the feature table
 kable(feature_table, caption = "Feature Names and Their Data Types (Wine Quality Dataset)", format = "markdown")
 ```
